@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bree+Serif&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felices 3 meses</title>
+    <style>
+        body {
+            font-family: "Archivo", sans-serif;
+            text-align: center;
+            background-color: #b095b1; /* Color de fondo */
+            margin: 50px;
+        }
+
+        #contenedor {
+            background-color: #be9dc7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #b84be4;
+        }
+
+        p {
+            color: #4d4d4d;
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        #contador {
+            font-family: "Bree Serif", serif;
+            font-size: 28px;
+            color: #b84be4;
+            margin-top: 20px;
+        }
+
+        /* Animación de corazones cayendo */
+        .corazones {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .corazon {
+            position: absolute;
+            width: 30px; /* Ajusta el tamaño del corazón según tus preferencias */
+            height: 30px;
+            opacity: 0;
+            animation: caidaCorazon 6s linear infinite;
+        }
+
+        @keyframes caidaCorazon {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0;
+            }
+            25% {
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(200vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="contenedor">
+        <h1>Felices 3 Meses</h1>
+        <h2>💕Mi Amor Hermosa💕</h2>
+        <p>¡Hola <span id="nombrePareja">Mi amor</span>!</p>
+        <p>Te amo muchisimo, demasiado, sos realmente el amor de mi vida. Te voy a amar siempre, por todo lo que me enseñas cada día, no soy mucho de cartas asi que lo hago a mi manera jaja. Te quiero toda la vida conmigo, me enamoraste desde el primer día, desde la primera vez que te ví reirte, desde el primer beso que te dí, estoy encantado de que hoy estemos juntos y siempre va a seguir asi 😑 (manifestando). Me encanta pasar los días con vos y nuestra hija la negra jajaja, espero te guste es solo un detallito que te quise hacer para que sepas un poquito más cuanto te amo, sos lo mejor que me pasó y te amo para siempre mi amooooor</p>
+        <p>Realmente estoy ansioso de seguir pasando más tiempo juntos y hacer lo que tanto queremos (irnos de este pueblucho 🙃) Voy a seguir esforzandome porque crezcamos juntos y mejoremos siempre. Te amo💖.</p>
+        <img id="imagenPareja" src="fatiyyo.jpg" alt="Imagen de la pareja">
+        <p>Con todo mi amor,<br>yo tu unico amor quien mas 🙄</p>
+        <p>Por cierto acá abajo dejé un contador que va contando los días que llevamos juntos (No es muy relevante quizás, pero me pareció bonito)</p>
+        <p id="contador"></p>
+    </div>
+
+    <!-- Corazones animados -->
+    <div class="corazones">
+        <!-- Ajusta la cantidad de corazones según tus preferencias -->
+        <img class="corazon" src="corazon.png" style="left: 8%;">
+        <img class="corazon" src="corazon.png" style="left: 18%;">
+        <img class="corazon" src="corazon.png" style="left: 28%;">
+        <img class="corazon" src="corazon.png" style="left: 38%;">
+        <img class="corazon" src="corazon.png" style="left: 48%;">
+        <img class="corazon" src="corazon.png" style="left: 58%;">
+        <img class="corazon" src="corazon.png" style="left: 68%;">
+        <img class="corazon" src="corazon.png" style="left: 78%;">
+        <img class="corazon" src="corazon.png" style="left: 88%;">
+   
+    </div>
+
+    <script>
+        // Fecha de inicio del noviazgo
+        var fechaInicio = new Date('2023-11-07'); // Cambia la fecha de inicio según tu caso
+
+        // Función para calcular los días transcurridos
+        function calcularDiasTranscurridos() {
+            var hoy = new Date();
+            var diferencia = hoy - fechaInicio;
+            var diasTranscurridos = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            return diasTranscurridos;
+        }
+
+        // Actualizar el contador de días
+        function actualizarContador() {
+            var contadorElemento = document.getElementById('contador');
+            var diasTranscurridos = calcularDiasTranscurridos();
+            contadorElemento.innerHTML = 'Llevamos juntos ' + diasTranscurridos + ' días';
+        }
+
+        // Mostrar el nombre de la pareja
+        document.getElementById('nombrePareja').innerHTML = 'Mi Amor'; // Cambia el nombre de tu pareja aquí
+
+        // Mostrar la imagen de la pareja
+        document.getElementById('imagenPareja').src = 'fatiyyo.jpg'; // Cambia la URL de la imagen
+
+        // Llamar a la función para actualizar el contador
+        actualizarContador();
+    </script>
+
+</body>
+</html>
